@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <title>Simple Todo List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js">
+    </script>
+    <script src="controller.js" ></script>
+    
+    </script>
+  </head>
+  <body ng-controller='HeaderController'>
+    <div >
+        <p>Hello! {{welcome}}</p> 
+        <input type='text' ng-model='enteredItem' size="20" ng-maxlength="20">
+        <button  ng-click='addClick()'>Add</button>
+        <!-- <form ng-submit="addName()">
+            <input type="text" ng-model="enteredItem">
+            <input type="submit" value="Add To Do">
+          </form> -->
+          <p> These are the items in your TO DO List: </p>
+          <ul>
+              <li ng-repeat="item in items">{{item}} <button ng-click='removeItem(item)'>Delete</button></li>
+              
+            </ul>
+    </div>
+  </body>
+</html>
