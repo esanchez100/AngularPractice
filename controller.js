@@ -7,14 +7,20 @@
 
 var myApp= angular.module('myApp', []);
     myApp.controller('HeaderController', function($scope){
-      $scope.welcome= 'Welcome!';
+      $scope.welcome= 'Welcome! Please enter your to do item.';
       $scope.items=[];
-      $scope.addClick= function(){
+      $scope.toDo='';
+      $scope.addClick= function(item){
           //pushes into the list array the item that has been entered 
           //the input with ng-model='item'
-          $scope.items.push($scope.enteredItem);
+        //   $scope.items.push($scope.item.enteredItem);
+          $scope.items.push({
+            done: false,
+            item: item
+          });
           //clears the input field
-          $scope.enteredItem= '';
+          $scope.toDo= '';
+        //   $scope.items.push($scope.item.done);
       }
       
       $scope.removeItem= function(item){
