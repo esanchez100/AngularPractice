@@ -1,0 +1,63 @@
+<!doctype html>
+
+
+
+<html ng-app='myApp'> 
+  <head>
+    <title>Your Shopping Cart</title> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js">
+    </script>
+<script>
+  var myApp= angular.module('myApp', []);
+myApp.controller('CartController', function ($scope) { 
+    // array of items
+    $scope.items = [
+              {title: 'Paint pots', quantity: 8, price: 3.95},
+              {title: 'Polka dots', quantity: 17, price: 12.95},
+              {title: 'Pebbles', quantity: 5, price: 6.95}
+  ];
+//   function that is called on onClick
+  $scope.remove = function(index) { $scope.items.splice(index, 1);}
+        $scope.firstName = 'John';
+        $scope.lastName = 'Smith';
+        $scope.names = ['Larry', 'Curly', 'Moe'];
+        $scope.addName = function() {
+          $scope.names.push($scope.enteredName);
+          $scope.enteredName = '';
+        }
+      })
+</script>
+  
+  </head>
+  <body ng-controller='CartController'> 
+  <h1>Your Order</h1>
+  <!-- this is the div that will loop throught the items in the array -->
+  <div ng-repeat='item in items'>
+    <!-- within this div the value title is being pulled -->
+  <span>{{item.title}}</span>
+  <!-- ng-model is the value that will display inside of the input box -->
+  <input ng-model='item.quantity'> 
+  <span>Price: {{item.price | currency}}</span> 
+  <span> Total Price: {{item.price * item.quantity | currency}}</span> 
+  <!-- this is the button and the function that is invoked in the controller -->
+  <button ng-click="remove($index)">Remove</button>
+  </div>
+  <!-- this is the input boxes that prepopulate the values based on what the value is in the controller-->
+  First name:<input ng-model="firstName" type="text"/>
+    <br>
+    Last name:<input ng-model="lastName" type="text"/>
+    <br>
+    <!-- this will display the values in the controller in the UI -->
+    Hello {{firstName}} {{lastName}}
+   <br>
+    <ul>
+      <li ng-repeat="name in names">{{name}}</li>
+    </ul>
+    <form ng-submit="addName()">
+      <!-- ng model almost works like the value field -->
+      <input type="text" ng-model="enteredName">
+      <!-- this is the button -->
+      <input type="submit" value="add">
+    </form>
+        </body>
+      </html>
