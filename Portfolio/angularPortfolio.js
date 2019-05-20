@@ -1,4 +1,4 @@
-var portfolioApp = angular.module('myPortfolio', []);
+var portfolioApp = angular.module('myPortfolio', ['ngRoute']);
 
 // this is what will route to other pages that are specified below
 // portfolioApp.config(function($routeProvider) {
