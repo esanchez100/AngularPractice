@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- thiw is the name of mny app -->
+<html ng-app='myPortfolio'>
+  <head>
+    <title>Emily's Page</title>
+    <!-- this brings angular framwork into app -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+    <!-- pulls in controller file -->
+    <script src="angularPortfolio.js" ></script>
+    <!-- adds Boootstrap -->
+    <link rel="stylesheet" 
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+          crossorigin="anonymous">
+
+      <!-- icons -->
+      <link rel="stylesheet" 
+            href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" 
+            integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" 
+            crossorigin="anonymous">
+    </head>
+    <body ng-controller="mainController">
+        <!-- HEADER AND NAVBAR -->
+        <header>
+                <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">A logo could go here </a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
+                        <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
+                    </ul>
+                </div>
+                </nav>
+            </header>
+
+        <!-- MAIN CONTENT AND INJECTED VIEWS -->
+        <div id="main">
+            <p>{{message}} </p>
+                <!-- angular templating -->
+                <!-- this is where content will be injected -->
+            <div ng-view>
+
+            </div>
+        </div>
+        <div >
+
+        </div>
+    </body>
+</html>
