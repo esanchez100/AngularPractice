@@ -1,32 +1,5 @@
 var portfolioApp = angular.module('myPortfolio', ['ui.router']);
 
-// this is what will route to other pages that are specified below
-// portfolioApp.config(function($routeProvider) {
-//     $routeProvider
-
-//         // route for the home page
-//         .when('/', {
-//             templateUrl : 'home.html',
-//             controller  : 'mainController'
-//         })
-
-//         // route for the about page
-//         .when('/about', {
-//             templateUrl : 'about.html',
-//             controller  : 'aboutController'
-//         })
-
-//         // route for the contact page
-//         .when('/contact', {
-//             templateUrl : 'contact.html',
-//             controller  : 'contactController'
-//         })
-
-//          .when('/projects', {
-//              tempUrl : 'projects.html',
-//              controller : 'projectsController'
-//          });
-//     });
      // create the controller and inject Angular's $scope
      portfolioApp.controller('mainController', function($scope) {
         // create a message to display in our view
@@ -38,11 +11,12 @@ var portfolioApp = angular.module('myPortfolio', ['ui.router']);
     });
 
     portfolioApp.controller('contactController', function($scope) {
-        $scope.message = 'Contact us! JK. This is just a demo.';
+        $scope.message = 'Listed below are the list of ways to contact me';
+
     });
 
     portfolioApp.controller('projectsController', function($scope) {
-        $scope.message = 'Project page. This is the project page.';
+        $scope.message = 'Welcome to my project page! Here you can find personal projects that I have worked on over the past months.';
     });
 
     portfolioApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
@@ -60,6 +34,7 @@ var portfolioApp = angular.module('myPortfolio', ['ui.router']);
                 .state('#', {//State demonstrating Nested views
                     url: "/home",
                     templateUrl: "home.html",
+                    // you could define the controller in line as well
                     controller  : 'mainController'
                 })
                 .state('about', {//State demonstrating Nested views
@@ -77,4 +52,16 @@ var portfolioApp = angular.module('myPortfolio', ['ui.router']);
                     templateUrl: "projects.html",
                     controller  : 'projectsController'
                 })    
-    }]);
+    }])
+// this will pull in my directive
+    portfolioApp.directive('myCard', function() {
+        return {
+            restrict:"E",
+            templateUrl: "/Portfolio/directives/card.directive.html",
+            scope: {
+                myUrl: '@', // binding strategy
+                cardTitle:'@',
+                description:'@'
+            }
+        }
+    }); 

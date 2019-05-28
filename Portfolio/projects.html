@@ -1,5 +1,17 @@
-<div class="jumbotron">
+<div class="container jumbotron">
         <h1>My Projects</h1>
         <!-- this message is coming from the projects controller -->
         <p>{{message}}</p>
-    </div>
+</div>
+<div class="container">
+    <!-- calling in my directive 3 times and passing in all info that personalizes each card -->
+    <my-card my-url="https://coder.clothing/images/stories/virtuemart/product/reactjs-logo-sticker.jpg" 
+        card-title="React Projects"
+        description="This is the text that will go in the card description for React projects "></my-card>
+    <my-card my-url="https://www.lambdatest.com/blog/wp-content/uploads/2018/07/angular-JS.jpg"
+        card-title="Angular Projects"
+        description="This is the text that will go in the card description for Angular projects"></my-card>
+    <my-card my-url="https://iamother.com/wp-content/uploads/2017/05/og-1.png"
+        card-title="Other Projects"
+        description="This is the text that will go in the card description for other misc projects"></my-card>
+</div>
