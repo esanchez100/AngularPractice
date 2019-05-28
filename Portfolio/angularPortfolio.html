@@ -5,6 +5,9 @@
     <title>Emily's Page</title>
     <!-- this brings angular framwork into app -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+    <!-- pulls in UI router -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    
     <!-- pulls in controller file -->
     <script src="angularPortfolio.js" ></script>
     <!-- adds Boootstrap -->
@@ -22,27 +25,41 @@
     <body ng-controller="mainController">
         <!-- HEADER AND NAVBAR -->
         <header>
-                <nav class="navbar navbar-default">
+            <nav class="navbar navbar-default">
                 <div class="container">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="/">A logo could go here </a>
+                        <a class="navbar-brand" ui-sref="#">A logo could go here </a>
                     </div>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                        <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
-                        <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
-                    </ul>
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a ui-sref="#">
+                                    <i class="fa fa-home"></i> Home
+                                </a>
+                            </li>
+                            <li>
+                                <a ui-sref="about">
+                                        <i class="fas fa-info-circle"></i> About
+                                </a>
+                            </li>
+                            <li>
+                                <a ui-sref="contact">
+                                        <i class="fas fa-address-card"></i> Contact
+                                </a>
+                            </li>
+                        </ul>
+                   
                 </div>
-                </nav>
+            </nav>
             </header>
 
         <!-- MAIN CONTENT AND INJECTED VIEWS -->
         <div id="main">
-            <p>{{message}} </p>
+            <!-- this is a message to check if the controler is working -->
+            <!-- <p>{{message}} </p> -->
                 <!-- angular templating -->
                 <!-- this is where content will be injected -->
-            <div ng-view>
+            <div ui-view>
+           
 
             </div>
         </div>

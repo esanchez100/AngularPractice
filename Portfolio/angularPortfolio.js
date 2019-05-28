@@ -1,4 +1,4 @@
-var portfolioApp = angular.module('myPortfolio', ['ngRoute']);
+var portfolioApp = angular.module('myPortfolio', ['ui.router']);
 
 // this is what will route to other pages that are specified below
 // portfolioApp.config(function($routeProvider) {
@@ -45,3 +45,36 @@ var portfolioApp = angular.module('myPortfolio', ['ngRoute']);
         $scope.message = 'Project page. This is the project page.';
     });
 
+    portfolioApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+        // For any unmatched url, send to /business
+        $urlRouterProvider.otherwise("#")
+         
+        $stateProvider
+                // .state('#', {//State demonstrating Nested views
+                    // url: "main",
+                    // templateUrl: "angularPortfolio.html",
+                    // controller  : function ($scope){
+                    //     $scope.message= "This is the homepage"
+                    // }
+                // })  
+                .state('#', {//State demonstrating Nested views
+                    url: "/home",
+                    templateUrl: "home.html",
+                    controller  : 'mainController'
+                })
+                .state('about', {//State demonstrating Nested views
+                    url: "/about",
+                    templateUrl: "about.html",
+                    controller  : 'aboutController'
+                })    
+                .state('contact', {//State demonstrating Nested views
+                    url: "/contact",
+                    templateUrl: "contact.html",
+                    controller  : 'contactController'
+                })
+                .state('projects', {//State demonstrating Nested views
+                    url: "/projects",
+                    templateUrl: "projects.html",
+                    controller  : 'projectsController'
+                })    
+    }]);
